@@ -86,7 +86,7 @@ g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
 w.addItem(g)
 
 z = np.squeeze(normarray[:,:,0])
-p1 = gl.GLSurfacePlotItem(z=z, shader='shaded', colors=colors.reshape(ns*nl,4), smooth=False)
+p1 = gl.GLSurfacePlotItem(z=z, shader='shaded', colors=colors.reshape(ns*nl,4), computeNormals=True, smooth=False)
 p1.scale(1./50., 1./50., 2.)
 w.addItem(p1)
 
