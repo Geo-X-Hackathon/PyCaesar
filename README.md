@@ -1,5 +1,5 @@
 # PyCaesar
 
-For PyQtGraph with OpebGL, (on debian/ubuntu), run:
+For PyQtGraph with OpenGL, (on debian/ubuntu), run:
 apt-get install python-qt4-gl
 
