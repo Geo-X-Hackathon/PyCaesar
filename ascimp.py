@@ -18,6 +18,9 @@ sortedlist=sorted(numlist)
 
 first=True
 
+#Make smaller to reduce waiting time
+numImages=240
+
 #Get First Image and check dimensions
 filename='../CAESAR_data/D4/elev.dat'+str(sortedlist[0])+'.txt'
 dataset=gdal.Open(filename, gdal.GA_ReadOnly)
@@ -25,12 +28,12 @@ print("Size of one DTM is {} x {} x {}".format(dataset.RasterXSize, dataset.Rast
 print("There are {} time steps".format(len(sortedlist)))
 #Build n-dimensional array (currently 3)
 #array=np.empty([dataset.RasterYSize,dataset.RasterXSize,len(sortedlist)],dtype=np.float)
-array=np.empty([dataset.RasterYSize,dataset.RasterXSize,1],dtype=np.float)
+array=np.empty([dataset.RasterYSize,dataset.RasterXSize,numImages],dtype=np.float)
 print("Array size is {}".format(array.shape))
 
 #Cycle through all images and append to array
 #for i in range(0,len(sortedlist)):
-for i in range(0,1):
+for i in range(0,numImages):
 	num=sortedlist[i]
 	name='../CAESAR_data/D4/elev.dat'+str(num)+'.txt'
 	ds=gdal.Open(name, gdal.GA_ReadOnly)	
@@ -41,7 +44,8 @@ for i in range(0,1):
 
 min=np.nanmin(array)
 max=np.nanmax(array)
-normarray=array*3./(max-min)
+heightFactor=3.
+normarray=(array-min)*heightFactor/(max-min)
 min=np.nanmin(normarray)
 max=np.nanmax(normarray)
 print min,max
@@ -54,10 +58,10 @@ w.setWindowTitle('PyCAESAR: GLSurfacePlot')
 w.setCameraPosition(distance=50)
 
 ## Add a grid to the view
-#g = gl.GLGridItem()
-#g.scale(2,2,1)
-#g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
-#w.addItem(g)
+g = gl.GLGridItem()
+g.scale(2,2,1)
+g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+w.addItem(g)
 
 ## Simple surface plot example
 ## x, y values are not specified, so assumed to be 0:50
@@ -67,5 +71,22 @@ p1.shader()['colorMap'] = np.array([0.2, 2, 0.5, 0.2, 1, 1, 0.2, 0, 2])
 p1.scale(1./50., 1./50., 1.)
 #p1.translate(-18, 2, 0)
 w.addItem(p1)
+
+index = 0
+def update():
+	global normarray, p1, z, index
+	if index<numImages-1:
+		index += 1
+	else:
+		index=0
+	#print("Array size is {}".format(np.squeeze(normarray[:,:,index]).shape))
+	print("Time index: {}".format(index))
+	p1.setData(z=np.squeeze(normarray[:,:,index]))
+
+timer = QtCore.QTimer()
+timer.timeout.connect(update)
+timer.start(30)
+
+
 
 QtGui.QApplication.instance().exec_()
