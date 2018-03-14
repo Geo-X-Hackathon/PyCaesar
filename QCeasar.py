@@ -110,6 +110,7 @@ def update():
 	colors[colors<0.001]=1.
 	p1.setData(z=np.squeeze(normarray[:,:,index]), colors=colors.reshape(ns*nl,4))
 	ui.diffView.plot(y=diff[:,:,index].flatten())
+	ui.frameNumber.display(index)
 
 timer = QtCore.QTimer()
 timer.timeout.connect(update)

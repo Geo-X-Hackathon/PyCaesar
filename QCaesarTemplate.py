@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(900, 1211)
+        MainWindow.resize(901, 1286)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.diffView = PlotWidget(self.centralwidget)
@@ -38,9 +38,12 @@ class Ui_MainWindow(object):
         self.timeSlider.setGeometry(QtCore.QRect(50, 1070, 800, 31))
         self.timeSlider.setOrientation(QtCore.Qt.Horizontal)
         self.timeSlider.setObjectName(_fromUtf8("timeSlider"))
+        self.frameNumber = QtGui.QLCDNumber(self.centralwidget)
+        self.frameNumber.setGeometry(QtCore.QRect(730, 1130, 111, 51))
+        self.frameNumber.setObjectName(_fromUtf8("frameNumber"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 900, 40))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 901, 40))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
