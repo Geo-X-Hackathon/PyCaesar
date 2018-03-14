@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>901</width>
-    <height>1286</height>
+    <height>1016</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>850</y>
+      <y>640</y>
       <width>800</width>
       <height>200</height>
      </rect>
@@ -30,15 +30,15 @@
       <x>50</x>
       <y>30</y>
       <width>800</width>
-      <height>800</height>
+      <height>600</height>
      </rect>
     </property>
    </widget>
    <widget class="QLCDNumber" name="frameNumber">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>1150</y>
+      <x>720</x>
+      <y>940</y>
       <width>111</width>
       <height>51</height>
      </rect>
@@ -47,8 +47,8 @@
    <widget class="QSlider" name="horizontalSlider">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>1070</y>
+      <x>50</x>
+      <y>860</y>
       <width>791</width>
       <height>29</height>
      </rect>
@@ -60,8 +60,8 @@
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>1140</y>
+      <x>60</x>
+      <y>930</y>
       <width>181</width>
       <height>37</height>
      </rect>
@@ -73,8 +73,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>1110</y>
+      <x>700</x>
+      <y>900</y>
       <width>151</width>
       <height>32</height>
      </rect>
@@ -90,7 +90,7 @@
      <x>0</x>
      <y>0</y>
      <width>901</width>
-     <height>40</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
