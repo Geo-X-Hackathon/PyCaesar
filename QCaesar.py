@@ -9,7 +9,7 @@ import QCaesarTemplate as QCaesarTemplate
 app = QtGui.QApplication([])
 
 win = QtGui.QMainWindow()
-win.setWindowTitle('pyqtgraph example: VideoSpeedTest')
+win.setWindowTitle('QCaesar')
 ui = QCaesarTemplate.Ui_MainWindow()
 ui.setupUi(win)
 win.show()
@@ -49,7 +49,7 @@ dataset=None
 
 #Cycle through all images and append to array
 #for i in range(0,len(sortedlist)):
-if False: #run only once
+if True: #set to false after first run to speed up
   for i in range(0,numImages):
 	num=sortedlist[i]
 	name='../CAESAR_data/D4/elev.dat'+str(num)+'.txt'
