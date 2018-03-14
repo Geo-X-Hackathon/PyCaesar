@@ -95,6 +95,12 @@ p1 = gl.GLSurfacePlotItem(z=z, shader='shaded', colors=colors.reshape(ns*nl,4), 
 p1.scale(1./50., 1./50., 2.)
 ui.dtmView.addItem(p1)
 
+
+#ui.timeSlider.setMinimum(0)
+#ui.timeSlider.setMinimum(238)
+
+#ui.timeSlider.setValue(5)
+
 index = 0
 def update():
 	global colors,normarray, p1, z, index
@@ -111,12 +117,30 @@ def update():
 	p1.setData(z=np.squeeze(normarray[:,:,index]), colors=colors.reshape(ns*nl,4))
 	ui.diffView.plot(y=diff[:,:,index].flatten())
 	ui.frameNumber.display(index)
+	ui.horizontalSlider.setProperty("value", index)
+
+def sliderChange():
+	val=ui.horizontalSlider.value()
+	#print "val",val
+	#ui.timeSlider.setProperty("value", val)
+	a=np.squeeze(diff[:,:,val])
+	colors[...]=0.
+	colors[:,:,1]=a
+	colors[:,:,0]=a
+	colors[colors<0.001]=1.
+	p1.setData(z=np.squeeze(normarray[:,:,val]), colors=colors.reshape(ns*nl,4))
+	ui.diffView.plot(y=diff[:,:,val].flatten())
+	
+#ui.horizontalSlider.sliderMoved.connect(sliderChange)
+ui.horizontalSlider.sliderReleased.connect(sliderChange)
+
+def timeMovie():
+	print "ja"
+	timer.start(30)
 
 timer = QtCore.QTimer()
 timer.timeout.connect(update)
-timer.start(30)
-
-
+ui.checkBox.toggled.connect(timeMovie)
 
 
 

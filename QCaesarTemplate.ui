@@ -34,19 +34,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QSlider" name="timeSlider">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>1070</y>
-      <width>800</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLCDNumber" name="frameNumber">
     <property name="geometry">
      <rect>
@@ -55,6 +42,45 @@
       <width>111</width>
       <height>51</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>1070</y>
+      <width>791</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>1130</y>
+      <width>175</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Play Movie</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>1130</y>
+      <width>181</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Play Movie</string>
     </property>
    </widget>
   </widget>
