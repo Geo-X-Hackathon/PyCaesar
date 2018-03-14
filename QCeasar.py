@@ -95,12 +95,6 @@ p1 = gl.GLSurfacePlotItem(z=z, shader='shaded', colors=colors.reshape(ns*nl,4), 
 p1.scale(1./50., 1./50., 2.)
 ui.dtmView.addItem(p1)
 
-
-#ui.timeSlider.setMinimum(0)
-#ui.timeSlider.setMinimum(238)
-
-#ui.timeSlider.setValue(5)
-
 index = 0
 def update():
 	global colors,normarray, p1, z, index

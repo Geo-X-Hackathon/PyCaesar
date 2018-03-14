@@ -35,18 +35,18 @@ class Ui_MainWindow(object):
         self.dtmView.setGeometry(QtCore.QRect(50, 30, 800, 800))
         self.dtmView.setObjectName(_fromUtf8("dtmView"))
         self.frameNumber = QtGui.QLCDNumber(self.centralwidget)
-        self.frameNumber.setGeometry(QtCore.QRect(730, 1130, 111, 51))
+        self.frameNumber.setGeometry(QtCore.QRect(730, 1150, 111, 51))
         self.frameNumber.setObjectName(_fromUtf8("frameNumber"))
         self.horizontalSlider = QtGui.QSlider(self.centralwidget)
         self.horizontalSlider.setGeometry(QtCore.QRect(60, 1070, 791, 29))
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName(_fromUtf8("horizontalSlider"))
-        self.pushButton = QtGui.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(530, 1130, 175, 42))
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.checkBox = QtGui.QCheckBox(self.centralwidget)
-        self.checkBox.setGeometry(QtCore.QRect(290, 1130, 181, 37))
+        self.checkBox.setGeometry(QtCore.QRect(70, 1140, 181, 37))
         self.checkBox.setObjectName(_fromUtf8("checkBox"))
+        self.label = QtGui.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(710, 1110, 151, 32))
+        self.label.setObjectName(_fromUtf8("label"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 901, 40))
@@ -61,8 +61,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
-        self.pushButton.setText(_translate("MainWindow", "Play Movie", None))
         self.checkBox.setText(_translate("MainWindow", "Play Movie", None))
+        self.label.setText(_translate("MainWindow", "Frame No.", None))
 
 from pyqtgraph import PlotWidget
 from pyqtgraph.opengl import GLViewWidget
