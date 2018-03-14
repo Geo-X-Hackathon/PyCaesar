@@ -95,6 +95,7 @@ p1 = gl.GLSurfacePlotItem(z=z, shader='shaded', colors=colors.reshape(ns*nl,4), 
 p1.scale(1./50., 1./50., 2.)
 ui.dtmView.addItem(p1)
 
+ui.horizontalSlider.setMaximum(len(sortedlist)-2)
 index = 0
 def update():
 	global colors,normarray, p1, z, index
@@ -124,13 +125,19 @@ def sliderChange():
 	colors[colors<0.001]=1.
 	p1.setData(z=np.squeeze(normarray[:,:,val]), colors=colors.reshape(ns*nl,4))
 	ui.diffView.plot(y=diff[:,:,val].flatten())
+	ui.frameNumber.display(val)
 	
 #ui.horizontalSlider.sliderMoved.connect(sliderChange)
 ui.horizontalSlider.sliderReleased.connect(sliderChange)
-
+toggled=0
 def timeMovie():
-	print "ja"
-	timer.start(30)
+	global toggled
+	if toggled==0:
+		toggled=1
+		timer.start(30)
+	else:
+		toggled=0
+		timer.stop()
 
 timer = QtCore.QTimer()
 timer.timeout.connect(update)
