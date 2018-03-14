@@ -47,6 +47,9 @@ class Ui_MainWindow(object):
         self.label = QtGui.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(700, 900, 151, 32))
         self.label.setObjectName(_fromUtf8("label"))
+        self.diffBox = QtGui.QCheckBox(self.centralwidget)
+        self.diffBox.setGeometry(QtCore.QRect(200, 940, 99, 22))
+        self.diffBox.setObjectName(_fromUtf8("diffBox"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 901, 25))
@@ -63,6 +66,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
         self.checkBox.setText(_translate("MainWindow", "Play Movie", None))
         self.label.setText(_translate("MainWindow", "Frame No.", None))
+        self.diffBox.setText(_translate("MainWindow", "Show Diffs", None))
 
 from pyqtgraph import PlotWidget
 from pyqtgraph.opengl import GLViewWidget

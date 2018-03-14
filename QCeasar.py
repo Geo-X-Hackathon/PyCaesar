@@ -109,7 +109,11 @@ def update():
 	colors[:,:,1]=a
 	colors[:,:,0]=a
 	colors[colors<0.001]=1.
-	p1.setData(z=np.squeeze(normarray[:,:,index]), colors=colors.reshape(ns*nl,4))
+	#p1.setData(z=np.squeeze(normarray[:,:,index]), colors=colors.reshape(ns*nl,4))
+	if ui.diffBox.isChecked():
+		p1.setData(z=np.squeeze(diff[:,:,index]), colors=colors.reshape(ns*nl,4))
+	else:
+		p1.setData(z=np.squeeze(normarray[:,:,index]), colors=colors.reshape(ns*nl,4))
 	ui.diffView.plot(y=diff[:,:,index].flatten())
 	ui.frameNumber.display(index)
 	ui.horizontalSlider.setProperty("value", index)
