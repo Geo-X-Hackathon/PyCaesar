@@ -4,7 +4,6 @@ from pyqtgraph.Qt import QtCore, QtGui
 import pyqtgraph as pg
 import pyqtgraph.opengl as gl
 
-
 f = open('files.txt', 'r')
 
 numlist=[]

@@ -25,15 +25,22 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1110, 1060)
+        MainWindow.resize(900, 1211)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.diffView = PlotWidget(self.centralwidget)
-        self.diffView.setGeometry(QtCore.QRect(40, 550, 981, 351))
+        self.diffView.setGeometry(QtCore.QRect(50, 850, 800, 200))
         self.diffView.setObjectName(_fromUtf8("diffView"))
+        self.dtmView = GLViewWidget(self.centralwidget)
+        self.dtmView.setGeometry(QtCore.QRect(50, 30, 800, 800))
+        self.dtmView.setObjectName(_fromUtf8("dtmView"))
+        self.timeSlider = QtGui.QSlider(self.centralwidget)
+        self.timeSlider.setGeometry(QtCore.QRect(50, 1070, 800, 31))
+        self.timeSlider.setOrientation(QtCore.Qt.Horizontal)
+        self.timeSlider.setObjectName(_fromUtf8("timeSlider"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1110, 40))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 900, 40))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
@@ -47,3 +54,4 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
 
 from pyqtgraph import PlotWidget
+from pyqtgraph.opengl import GLViewWidget

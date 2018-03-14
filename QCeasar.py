@@ -81,18 +81,39 @@ colors[:,:,1]=a
 colors[:,:,0]=a
 colors[colors<0.001]=1.
 
-#plot diffs
-#win = pg.GraphicsWindow(title="Basic plotting examples")
-#win.resize(1000,600)
-#win.setWindowTitle('pyqtgraph example: Plotting')
-#p1 = win.addPlot(title="Basic array plotting", y=diff[:,:,0].flatten())
-
 ui.diffView.plot(y=diff[:,:,0].flatten())
 
+ui.dtmView.setCameraPosition(distance=25)
 
+g = gl.GLGridItem()
+g.scale(2,2,1)
+g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+ui.dtmView.addItem(g)
 
+z = np.squeeze(normarray[:,:,0])
+p1 = gl.GLSurfacePlotItem(z=z, shader='shaded', colors=colors.reshape(ns*nl,4), computeNormals=True, smooth=False)
+p1.scale(1./50., 1./50., 2.)
+ui.dtmView.addItem(p1)
 
+index = 0
+def update():
+	global colors,normarray, p1, z, index
+	if index<numImages-2:
+		index += 1
+	else:
+		index=0
+	#print index
+	a=np.squeeze(diff[:,:,index])
+	colors[...]=0.
+	colors[:,:,1]=a
+	colors[:,:,0]=a
+	colors[colors<0.001]=1.
+	p1.setData(z=np.squeeze(normarray[:,:,index]), colors=colors.reshape(ns*nl,4))
+	ui.diffView.plot(y=diff[:,:,index].flatten())
 
+timer = QtCore.QTimer()
+timer.timeout.connect(update)
+timer.start(30)
 
 
 

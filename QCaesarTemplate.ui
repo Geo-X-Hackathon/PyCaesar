@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1110</width>
-    <height>1060</height>
+    <width>900</width>
+    <height>1211</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,34 @@
    <widget class="PlotWidget" name="diffView">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>550</y>
-      <width>981</width>
-      <height>351</height>
+      <x>50</x>
+      <y>850</y>
+      <width>800</width>
+      <height>200</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="GLViewWidget" name="dtmView">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>800</width>
+      <height>800</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="timeSlider">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>1070</y>
+      <width>800</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
   </widget>
@@ -30,7 +53,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1110</width>
+     <width>900</width>
      <height>40</height>
     </rect>
    </property>
@@ -42,6 +65,11 @@
    <class>PlotWidget</class>
    <extends>QGraphicsView</extends>
    <header>pyqtgraph</header>
+  </customwidget>
+  <customwidget>
+   <class>GLViewWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph.opengl</header>
   </customwidget>
  </customwidgets>
  <resources/>
