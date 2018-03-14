@@ -14,15 +14,6 @@ ui = QCaesarTemplate.Ui_MainWindow()
 ui.setupUi(win)
 win.show()
 
-#try:
-#    from pyqtgraph.opengl.RawImageWidget import GLGraphicsItem
-#except ImportError:
-#    ui.rawGLRadio.setEnabled(False)
-#    ui.rawGLRadio.setText(ui.rawGLRadio.text() + " (OpenGL not available)")
-#else:
-#    ui.rawGLImg = RawImageGLWidget()
-#    ui.stack.addWidget(ui.rawGLImg)
-
 f = open('files.txt', 'r')
 numlist=[]
 for line in f:
